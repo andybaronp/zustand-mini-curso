@@ -21,7 +21,7 @@ export const BearPage = () => {
 
 const BlackBears = () => {
   const blackBears = useBearStore((state) => state.blackBears)
-  const increaseBlackBears = useBearStore((state) => state.increasePolarBears)
+  const increaseBlackBears = useBearStore((state) => state.increaseBlackBears)
   return (
     <WhiteCard centered>
       <h2>Osos Negros</h2>
