@@ -2,6 +2,7 @@ import { type StateCreator, create } from 'zustand'
 import { persist, devtools } from 'zustand/middleware'
 // import { fireBaseStorage } from '../storages/custom-fireBaseStorage.storage'
 import { logger } from '../middlewares/logger.middleware'
+import { useWeddingBoundStore } from '../wedding'
 interface PersonState {
   firstName: string
   lastName: string
@@ -35,3 +36,10 @@ export const usePersonStore = create<PersonState & Actions>()(
     ),
   ),
 )
+// puedo cambiar un estado de un store con otro    con el nextState y el prevState
+usePersonStore.subscribe((nexState) => {
+  const { firstName, lastName } = nexState
+
+  useWeddingBoundStore.getState().setFirstName(firstName)
+  useWeddingBoundStore.getState().setLastName(lastName)
+})

@@ -14,7 +14,6 @@ const RequestInfo = () => {
         setRequestInfo(err)
       })
   }, [])
-  console.log(requestInfo)
 
   return (
     <>
